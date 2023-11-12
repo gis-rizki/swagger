@@ -8,29 +8,29 @@ info:
     email: farhanrizki101010@gmail.com
   license:
     name: GCF Package
-    url: https://pkg.go.dev/github.com/gis-geos/gcf
+    url: https://pkg.go.dev/github.com/gis-rizki/backendgis
   version: 1.0.11
 externalDocs:
   description: Swagger
-  url: https://gis-geos.github.io/swagger/
+  url: https://gis-rizki.github.io/swagger/
 servers:
-  - url: https://us-central1-gcpospasial.cloudfunctions.net
+  - url: https://asia-southeast2-lofty-mark-401904.cloudfunctions.net/backendgis5
 tags:
   - name: auth
     description: Authentikasi
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-geos/gcf
+      url: https://github.com/gis-rizki/backendgis
   - name: register
     description: Register Account
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-geos/gcf
+      url: https://github.com/gis-rizki/backendgis
   - name: data
     description: Data Untuk akses GIS
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-geos/gcf
+      url: https://github.com/gis-rizki/backendgis
 paths:
   /RegisterGis:
     post:
@@ -43,15 +43,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/user'
+              $ref: "#/components/schemas/user"
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response'
-        '405':
+                $ref: "#/components/schemas/Response"
+        "405":
           description: Invalid input
   /login-gis:
     post:
@@ -64,15 +64,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Auth'
+              $ref: "#/components/schemas/Auth"
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthResponse'
-        '405':
+                $ref: "#/components/schemas/AuthResponse"
+        "405":
           description: Invalid input
   /UpdateGeo:
     put:
@@ -85,43 +85,43 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/bodycord'
+              $ref: "#/components/schemas/bodycord"
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Response'
-        '405':
-          description: Invalid input          
+                $ref: "#/components/schemas/Response"
+        "405":
+          description: Invalid input
       security:
         - Login:
-          - write:apiKey
-          - read:apiKey
+            - write:apiKey
+            - read:apiKey
 
   /GetAllGeo:
     get:
       tags:
         - data
       summary: Get Data Geojson
-      description: Header auth 
+      description: Header auth
       operationId: GetdataGeojson
       responses:
-        '200':
+        "200":
           description: successful operation
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/responseUser'
-        '400':
+                  $ref: "#/components/schemas/responseUser"
+        "400":
           description: Invalid status value
       security:
         - Login:
-          - write:apiKey
-          - read:apiKey
+            - write:apiKey
+            - read:apiKey
 
 components:
   schemas:
@@ -130,7 +130,7 @@ components:
       properties:
         username:
           type: string
-          example : haris
+          example: haris
         password:
           type: string
           example: haris
@@ -203,7 +203,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Auth'
+            $ref: "#/components/schemas/Auth"
     UserArray:
       description: List of user object
       content:
@@ -211,11 +211,9 @@ components:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/AuthResponse'
+              $ref: "#/components/schemas/AuthResponse"
   securitySchemes:
     Login:
       type: apiKey
       name: Login
       in: header
-
-      
