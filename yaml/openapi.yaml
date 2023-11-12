@@ -8,31 +8,31 @@ info:
     email: farhanrizki101010@gmail.com
   license:
     name: GCF Package
-    url: https://pkg.go.dev/github.com/gis-rizki/backendgis
+    url: https://pkg.go.dev/github.com/gis-rizki/backendgeogis
   version: 1.0.11
 externalDocs:
   description: Swagger
   url: https://gis-rizki.github.io/swagger/
 servers:
-  - url: https://asia-southeast2-lofty-mark-401904.cloudfunctions.net/backendgis5
+  - url: https://asia-southeast2-lofty-mark-401904.cloudfunctions.net
 tags:
   - name: auth
     description: Authentikasi
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-rizki/backendgis
+      url: https://github.com/gis-rizki/backendgeogis
   - name: register
     description: Register Account
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-rizki/backendgis
+      url: https://github.com/gis-rizki/backendgeogis
   - name: data
     description: Data Untuk akses GIS
     externalDocs:
       description: Deskripsi dan Kode Program
-      url: https://github.com/gis-rizki/backendgis
+      url: https://github.com/gis-rizki/backendgeogis
 paths:
-  /RegisterGis:
+  /registergeogis:
     post:
       tags:
         - register
@@ -53,7 +53,7 @@ paths:
                 $ref: "#/components/schemas/Response"
         "405":
           description: Invalid input
-  /login-gis:
+  /logingeogis:
     post:
       tags:
         - auth
@@ -130,10 +130,10 @@ components:
       properties:
         username:
           type: string
-          example: iki12345
+          example: rizki
         password:
           type: string
-          example: farhaniki45
+          example: rizkipass
     Response:
       type: object
       properties:
@@ -157,7 +157,7 @@ components:
           properties:
             username:
               type: string
-              example: iki12345
+              example: rizki
             password:
               type: string
               example: hashed password
@@ -169,10 +169,10 @@ components:
       properties:
         username:
           type: string
-          example: iki12345
+          example: rizki
         password:
           type: string
-          example: farhaniki45
+          example: rizkipass
     bodycord:
       type: object
       properties:
@@ -181,7 +181,7 @@ components:
           example: polygon
         name:
           type: string
-          example: iki12345
+          example: rizki
         volume:
           type: string
           example: "1"
@@ -196,7 +196,7 @@ components:
           example: Selamat Datang
         token:
           type: string
-          example: farhaniki45
+          example: rizkipass
   requestBodies:
     AuthReq:
       description: Request Authentication
