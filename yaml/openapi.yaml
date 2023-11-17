@@ -100,7 +100,7 @@ paths:
             - write:apiKey
             - read:apiKey
 
-  /GetAllGeo:
+  /getallgeo:
     get:
       tags:
         - data
